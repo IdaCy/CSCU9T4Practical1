@@ -15,6 +15,18 @@ public class Entry {
     distance = dist;
   } //constructor
 
+  // Does the following work - it's just for CycleEntry class?!?
+  public Entry(String n, int d, int m, int y, int h, int min, int s, float dist, String terrain, String level) {
+  }
+
+  // Does the following work - it's just for SprintEntry class?!?
+  public Entry(String n, int d, int m, int y, int h, int min, int s, float dist, float up, float down) {
+  }
+
+  // Does the following work - it's just for SwimEntry class?!?
+  public Entry(String n, int d, int m, int y, int h, int min, int s, float dist, String terrain) {
+  }
+
   public String getName () {
     return name;
   } //getName
@@ -77,19 +89,16 @@ public class Entry {
 } // Entry
 
 class CycleEntry extends Entry {
-  //public CycleEntry(String name, int d, int m, int y, int h, int min, int s, float dist, String asphalt, String moderate) {
 
-  //}
-
-  public CycleEntry(String n, int d, int m, int y, int h, int min, int s, float dist) {
-    super(n, d, m, y, h, min, s, dist);
+  public CycleEntry(String n, int d, int m, int y, int h, int min, int s, float dist, String terrain, String level) {
+    super(n, d, m, y, h, min, s, dist, terrain, level); // Needs changed so it works ?
   }
 }
 
 class SprintEntry extends Entry {
 
-  public SprintEntry(String n, int d, int m, int y, int h, int min, int s, float dist, float whatsThis, float whatsThisOne) {
-    super(n, d, m, y, h, min, s, dist); // Needs changed so the last two things considered!!
+  public SprintEntry(String n, int d, int m, int y, int h, int min, int s, float dist, float up, float down) {
+    super(n, d, m, y, h, min, s, dist, up, down); // Needs changed
   }
 }
 
@@ -97,6 +106,6 @@ class SprintEntry extends Entry {
 class SwimEntry extends Entry {
 
   public SwimEntry(String n, int d, int m, int y, int h, int min, int s, float dist, String terrain) {
-    super(n, d, m, y, h, min, s, dist); // Needs changed so the last thing considered!!
+    super(n, d, m, y, h, min, s, dist, terrain); // Needs changed
   }
 }
