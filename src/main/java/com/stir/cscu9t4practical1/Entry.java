@@ -14,7 +14,7 @@ public class Entry {
     dateAndTime = inst;
     distance = dist;
   } //constructor
-  
+
   public String getName () {
     return name;
   } //getName
@@ -54,5 +54,49 @@ public class Entry {
              +getDay()+"/"+getMonth()+"/"+getYear()+"\n";
    return result;
   } //getEntry
-   
+
+  public String getTerrain() {
+    return null; // Change so it makes sense!!
+  }
+
+  public String getTempo() {
+    return null; // Change so it makes sense!!
+  }
+
+  public int getRepetitions() {
+    return 0; // Change that it makes sense - and, it might not be an integer !
+  }
+
+  public int getRecovery() {
+    return 0; // Change that it makes sense - and, it might not be an integer !
+  }
+
+  public String getWhere() {
+    return null; // Change so it makes sense!!
+  }
 } // Entry
+
+class CycleEntry extends Entry {
+  //public CycleEntry(String name, int d, int m, int y, int h, int min, int s, float dist, String asphalt, String moderate) {
+
+  //}
+
+  public CycleEntry(String n, int d, int m, int y, int h, int min, int s, float dist) {
+    super(n, d, m, y, h, min, s, dist);
+  }
+}
+
+class SprintEntry extends Entry {
+
+  public SprintEntry(String n, int d, int m, int y, int h, int min, int s, float dist, float whatsThis, float whatsThisOne) {
+    super(n, d, m, y, h, min, s, dist); // Needs changed so the last two things considered!!
+  }
+}
+
+
+class SwimEntry extends Entry {
+
+  public SwimEntry(String n, int d, int m, int y, int h, int min, int s, float dist, String terrain) {
+    super(n, d, m, y, h, min, s, dist); // Needs changed so the last thing considered!!
+  }
+}

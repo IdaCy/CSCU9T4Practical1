@@ -141,6 +141,7 @@ public class SprintEntryTest {
         Entry instance = new SprintEntry("Alice", 1, 2, 2003, 0, 16, 7, 300, 4, 2);
         int expResults = 4;
         int result = instance.getRepetitions();
+        String expResult = ""; // Change so it makes sense!!
         assertEquals(expResult, result);
     }
     
@@ -153,6 +154,7 @@ public class SprintEntryTest {
         Entry instance = new SprintEntry("Alice", 1, 2, 2003, 0, 16, 7, 300, 4, 2);
         int expResults = 2;
         int result = instance.getRecovery();
+        String expResult = ""; // Change so it makes sense!!
         assertEquals(expResult, result);
     }
 

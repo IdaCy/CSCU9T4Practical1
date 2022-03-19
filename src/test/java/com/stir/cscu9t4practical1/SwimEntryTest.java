@@ -145,7 +145,7 @@ public class SwimEntryTest {
         
         Entry instanceB = new SwimEntry("Alice", 1, 2, 2003, 0, 16, 7, 3,"pool");
         String expResultB = "in a pool";
-        String result = instanceB.getWhere();
+        String resultTWO_orNotTWQ = instanceB.getWhere(); // is this supposed to be the same var 'result' or a second one??
         assertEquals(expResultB, result);
     }
     /**
