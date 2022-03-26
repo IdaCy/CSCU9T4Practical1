@@ -131,7 +131,7 @@ public class CycleEntryTest {
         Entry instance = new CycleEntry("Alice", 1, 2, 2003, 0, 16, 7, 3, "asphalt", "moderate");
         float expResult = 3.0F;
         float result = instance.getDistance();
-        System.out.println(expResult + " \n" + instance.cycleToString());
+        System.out.println(expResult + " \n" + ((CycleEntry) instance).cycleToString());
         assertEquals(expResult, result);
     }
     
@@ -141,10 +141,10 @@ public class CycleEntryTest {
     @Test
     public void testGetTerrain() {
         System.out.println("getTerrain:");
-        Entry instance = new CycleEntry("Alice", 1, 2, 2003, 0, 16, 7, 3, "asphalt", "moderate");
+        CycleEntry instance = new CycleEntry("Alice", 1, 2, 2003, 0, 16, 7, 3, "asphalt", "moderate");
         String expResult = "asphalt";
         String result = instance.getTerrain();
-        System.out.println(expResult + " \n" + instance.cycleToString());
+        System.out.println(expResult + " \n" + ((CycleEntry) instance).cycleToString());
         assertEquals(expResult, result);
     }
 
@@ -154,7 +154,7 @@ public class CycleEntryTest {
     @Test
     public void testGetTempo() {
         System.out.println("getTempo");
-        Entry instance = new CycleEntry("Alice", 1, 2, 2003, 0, 16, 7, 3, "asphalt", "moderate");
+        CycleEntry instance = new CycleEntry("Alice", 1, 2, 2003, 0, 16, 7, 3, "asphalt", "moderate");
         String expResult = "moderate";
         String result = instance.getTempo();
         assertEquals(expResult, result);
@@ -165,11 +165,11 @@ public class CycleEntryTest {
      */
     @Test
     public void testGetEntry() {
-        System.out.println("getEntry");
-        Entry instance = new CycleEntry("Alice", 1, 2, 2003, 0, 16, 7, 3, "asphalt", "moderate");
+        System.out.println("getEntry:");
+        CycleEntry instance = new CycleEntry("Alice", 1, 2, 2003, 0, 16, 7, 3, "asphalt", "moderate");
         String expResult = "Alice cycled 3.0 km in 0:16:7 on 1/2/2003 on asphalt at moderate tempo\n";
         String result = instance.getEntry();
+        System.out.println(result);
         assertEquals(expResult, result);
     }
-    
 }

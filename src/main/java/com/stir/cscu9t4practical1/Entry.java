@@ -3,9 +3,11 @@ package com.stir.cscu9t4practical1;
 
 import java.util.Calendar;
 public class Entry {
-  private String name;
-  private Calendar dateAndTime;
-  private float distance;
+  protected String name;
+  protected Calendar dateAndTime;
+  protected float distance;
+  private String terrain;
+  private String tempo;
   
   public Entry (String n, int d, int m, int y, int h, int min, int s, float dist) {
     name = n;
@@ -17,13 +19,13 @@ public class Entry {
 
   // For CycleEntry class?!?
   public Entry(String n, int d, int m, int y, int h, int min, int s, float dist, String terrain, String tempo) {
-    name = n;
+    /*name = n;
     Calendar inst = Calendar.getInstance();
     inst.set(y,m-1,d,h,min,s);
     dateAndTime = inst;
     distance = dist;
     terrain = this.getTerrain();
-    tempo = this.getTempo();
+    tempo = this.getTempo();*/
   }
 
   // For SprintEntry class?!?
@@ -87,14 +89,6 @@ public class Entry {
    return result;
   } //getEntry
 
-  public String getTerrain() {
-    return null; // Change so it makes sense!!
-  }
-
-  public String getTempo() {
-    return null; // Change so it makes sense!!
-  }
-
   public int getRepetitions() {
     return 0; // Change that it makes sense - and, it might not be an integer !
   }
@@ -112,31 +106,6 @@ public class Entry {
     return name + ", " + getDay() + ", " + getMonth() + ", " +  getYear() + ", " + getHour()
             + ", " + getMin() + ", " + getSec() + ", " + getDistance() + " that's the basics!";
   }
-
-  public String cycleToString() {
-    return name + ", " + getDay() + ", " + getMonth() + ", " +  getYear() + ", " + getHour() + ", " + getMin()
-            + ", " + getSec() + ", " + getDistance() + ", " + getTerrain() + ", " + getTempo() + " ...Bike";
-  }
 } // Entry
 
-class CycleEntry extends Entry {
 
-  public CycleEntry(String name, int d, int m, int y, int h, int min, int s, float dist, String terrain, String tempo) {
-    super(name, d, m, y, h, min, s, dist, terrain, tempo); // Needs changed so it works ?
-  }
-}
-
-class SprintEntry extends Entry {
-
-  public SprintEntry(String name, int d, int m, int y, int h, int min, int s, float dist, float reps, float rec) {
-    super(name, d, m, y, h, min, s, dist, reps, rec); // Needs changed
-  }
-}
-
-
-class SwimEntry extends Entry {
-
-  public SwimEntry(String name, int d, int m, int y, int h, int min, int s, float dist, String where) {
-    super(name, d, m, y, h, min, s, dist, where); // Needs changed
-  }
-}
