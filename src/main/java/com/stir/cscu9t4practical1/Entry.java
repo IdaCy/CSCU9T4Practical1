@@ -15,16 +15,36 @@ public class Entry {
     distance = dist;
   } //constructor
 
-  // Does the following work - it's just for CycleEntry class?!?
-  public Entry(String n, int d, int m, int y, int h, int min, int s, float dist, String terrain, String level) {
+  // For CycleEntry class?!?
+  public Entry(String n, int d, int m, int y, int h, int min, int s, float dist, String terrain, String tempo) {
+    name = name;
+    Calendar inst = Calendar.getInstance();
+    inst.set(y,m-1,d,h,min,s);
+    dateAndTime = inst;
+    distance = dist;
+    terrain = getTerrain();
+    tempo = getTempo();
   }
 
-  // Does the following work - it's just for SprintEntry class?!?
-  public Entry(String n, int d, int m, int y, int h, int min, int s, float dist, float up, float down) {
+  // For SprintEntry class?!?
+  public Entry(String name, int d, int m, int y, int h, int min, int s, float dist, float repetitions, float recovery) {
+    name = name;
+    Calendar inst = Calendar.getInstance();
+    inst.set(y,m-1,d,h,min,s);
+    dateAndTime = inst;
+    distance = dist;
+    repetitions = getRepetitions();
+    recovery = getRecovery();
   }
 
-  // Does the following work - it's just for SwimEntry class?!?
-  public Entry(String n, int d, int m, int y, int h, int min, int s, float dist, String terrain) {
+  // For SwimEntry class?!?
+  public Entry(String n, int d, int m, int y, int h, int min, int s, float dist, String where) {
+    name = name;
+    Calendar inst = Calendar.getInstance();
+    inst.set(y,m-1,d,h,min,s);
+    dateAndTime = inst;
+    distance = dist;
+    where = getWhere();
   }
 
   public String getName () {
@@ -90,22 +110,22 @@ public class Entry {
 
 class CycleEntry extends Entry {
 
-  public CycleEntry(String n, int d, int m, int y, int h, int min, int s, float dist, String terrain, String level) {
-    super(n, d, m, y, h, min, s, dist, terrain, level); // Needs changed so it works ?
+  public CycleEntry(String name, int d, int m, int y, int h, int min, int s, float dist, String terrain, String tempo) {
+    super(name, d, m, y, h, min, s, dist, terrain, tempo); // Needs changed so it works ?
   }
 }
 
 class SprintEntry extends Entry {
 
-  public SprintEntry(String n, int d, int m, int y, int h, int min, int s, float dist, float up, float down) {
-    super(n, d, m, y, h, min, s, dist, up, down); // Needs changed
+  public SprintEntry(String name, int d, int m, int y, int h, int min, int s, float dist, float reps, float rec) {
+    super(name, d, m, y, h, min, s, dist, reps, rec); // Needs changed
   }
 }
 
 
 class SwimEntry extends Entry {
 
-  public SwimEntry(String n, int d, int m, int y, int h, int min, int s, float dist, String terrain) {
-    super(n, d, m, y, h, min, s, dist, terrain); // Needs changed
+  public SwimEntry(String name, int d, int m, int y, int h, int min, int s, float dist, String where) {
+    super(name, d, m, y, h, min, s, dist, where); // Needs changed
   }
 }
