@@ -54,10 +54,11 @@ public class CycleEntryTest {
      */
     @Test
     public void testGetDay() {
-        System.out.println("getDay");
+        System.out.println("getDay:");
         Entry instance = new CycleEntry("Alice", 1, 2, 2003, 0, 16, 7, 3, "gravel", "moderate");
         int expResult = 1;
         int result = instance.getDay();
+        System.out.println(expResult + " \n" + instance.toString());
         assertEquals(expResult, result);
     }
 
@@ -126,10 +127,11 @@ public class CycleEntryTest {
      */
     @Test
     public void testGetDistance() {
-        System.out.println("getDistance");
+        System.out.println("getDistance:");
         Entry instance = new CycleEntry("Alice", 1, 2, 2003, 0, 16, 7, 3, "asphalt", "moderate");
         float expResult = 3.0F;
         float result = instance.getDistance();
+        System.out.println(expResult + " \n" + instance.cycleToString());
         assertEquals(expResult, result);
     }
     
@@ -138,10 +140,11 @@ public class CycleEntryTest {
      */
     @Test
     public void testGetTerrain() {
-        System.out.println("getTerrain");
+        System.out.println("getTerrain:");
         Entry instance = new CycleEntry("Alice", 1, 2, 2003, 0, 16, 7, 3, "asphalt", "moderate");
         String expResult = "asphalt";
         String result = instance.getTerrain();
+        System.out.println(expResult + " \n" + instance.cycleToString());
         assertEquals(expResult, result);
     }
 

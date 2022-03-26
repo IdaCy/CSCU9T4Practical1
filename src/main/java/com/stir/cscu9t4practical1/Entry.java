@@ -17,18 +17,18 @@ public class Entry {
 
   // For CycleEntry class?!?
   public Entry(String n, int d, int m, int y, int h, int min, int s, float dist, String terrain, String tempo) {
-    name = name;
+    name = n;
     Calendar inst = Calendar.getInstance();
     inst.set(y,m-1,d,h,min,s);
     dateAndTime = inst;
     distance = dist;
-    terrain = getTerrain();
-    tempo = getTempo();
+    terrain = this.getTerrain();
+    tempo = this.getTempo();
   }
 
   // For SprintEntry class?!?
-  public Entry(String name, int d, int m, int y, int h, int min, int s, float dist, float repetitions, float recovery) {
-    name = name;
+  public Entry(String n, int d, int m, int y, int h, int min, int s, float dist, float repetitions, float recovery) {
+    name = n;
     Calendar inst = Calendar.getInstance();
     inst.set(y,m-1,d,h,min,s);
     dateAndTime = inst;
@@ -39,7 +39,7 @@ public class Entry {
 
   // For SwimEntry class?!?
   public Entry(String n, int d, int m, int y, int h, int min, int s, float dist, String where) {
-    name = name;
+    name = n;
     Calendar inst = Calendar.getInstance();
     inst.set(y,m-1,d,h,min,s);
     dateAndTime = inst;
@@ -105,6 +105,17 @@ public class Entry {
 
   public String getWhere() {
     return null; // Change so it makes sense!!
+  }
+
+  @Override
+  public String toString() {
+    return name + ", " + getDay() + ", " + getMonth() + ", " +  getYear() + ", " + getHour()
+            + ", " + getMin() + ", " + getSec() + ", " + getDistance() + " that's the basics!";
+  }
+
+  public String cycleToString() {
+    return name + ", " + getDay() + ", " + getMonth() + ", " +  getYear() + ", " + getHour() + ", " + getMin()
+            + ", " + getSec() + ", " + getDistance() + ", " + getTerrain() + ", " + getTempo() + " ...Bike";
   }
 } // Entry
 
