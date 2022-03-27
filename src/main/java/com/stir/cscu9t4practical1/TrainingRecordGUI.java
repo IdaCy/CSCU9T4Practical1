@@ -135,17 +135,19 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         int repetitions = 0;
         int recovery = 0;
         String where = "";
+
+        Entry e;
         if(category.equals("Cycle")) {
-            CycleEntry e = new CycleEntry(n, d, m, y, h, mm, s, km, terr, tem);
+            e = new CycleEntry(n, d, m, y, h, mm, s, km, terr, tem);
         }
         else if(category.equals("Sprint")) {
-            SprintEntry e = new SprintEntry(n, d, m, y, h, mm, s, km, repetitions, recovery);
+            e = new SprintEntry(n, d, m, y, h, mm, s, km, repetitions, recovery);
         }
         else if(category.equals("Swim")) {
-            SwimEntry e = new SwimEntry(n, d, m, y, h, mm, s, km, where);
+            e = new SwimEntry(n, d, m, y, h, mm, s, km, where);
         }
         else {
-            Entry e = new Entry(n, d, m, y, h, mm, s, km);
+            e = new Entry(n, d, m, y, h, mm, s, km);
         }
 
         myAthletes.addEntry(e);
