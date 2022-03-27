@@ -29,6 +29,11 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
     private JButton lookUpByDate = new JButton("Look Up");
     private JButton findAllByDate = new JButton("Find all by date");
 
+    JRadioButton r1 = new JRadioButton("Cycle");
+    JRadioButton r2 = new JRadioButton("Sprint");
+    JRadioButton r3 = new JRadioButton("Swim");
+    ButtonGroup bg = new ButtonGroup();
+
     private TrainingRecord myAthletes = new TrainingRecord();
 
     private JTextArea outputArea = new JTextArea(5, 50);
@@ -41,6 +46,21 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
     public TrainingRecordGUI() {
         super("Training Record");
         setLayout(new FlowLayout());
+
+        r1.setBounds(75,50,100,30);
+        r1.setActionCommand("Cycle");
+        r2.setBounds(75,100,100,30);
+        r2.setActionCommand("Sprint");
+        r3.setBounds(75,100,100,30);
+        r3.setActionCommand("Swim");
+        bg.add(r1); bg.add(r2); bg.add(r3);
+        add(r1);
+        //r1.addActionListener(this);
+        add(r2);
+        //r2.addActionListener(this);
+        add(r3);
+        //r3.addActionListener(this);
+
         add(labn);
         add(name);
         name.setEditable(true);
@@ -99,8 +119,9 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
     } // actionPerformed
 
     public String addEntry(String what) {
-        String message = "Record added\n";
+        String message = bg.getSelection().getActionCommand() + " record added\n";
         System.out.println("Adding "+what+" entry to the records");
+        String category = bg.getSelection().getActionCommand();
         String n = name.getText();
         int m = Integer.parseInt(month.getText());
         int d = Integer.parseInt(day.getText());
@@ -109,7 +130,24 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         int h = Integer.parseInt(hours.getText());
         int mm = Integer.parseInt(mins.getText());
         int s = Integer.parseInt(secs.getText());
-        Entry e = new Entry(n, d, m, y, h, mm, s, km);
+        String terr = "";
+        String tem = "";
+        int repetitions = 0;
+        int recovery = 0;
+        String where = "";
+        if(category.equals("Cycle")) {
+            CycleEntry e = new CycleEntry(n, d, m, y, h, mm, s, km, terr, tem);
+        }
+        else if(category.equals("Sprint")) {
+            SprintEntry e = new SprintEntry(n, d, m, y, h, mm, s, km, repetitions, recovery);
+        }
+        else if(category.equals("Swim")) {
+            SwimEntry e = new SwimEntry(n, d, m, y, h, mm, s, km, where);
+        }
+        else {
+            Entry e = new Entry(n, d, m, y, h, mm, s, km);
+        }
+
         myAthletes.addEntry(e);
         return message;
     }

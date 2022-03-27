@@ -16,7 +16,7 @@ public class TrainingRecord {
     
     // add a record to the list
    public void addEntry(Entry e){
-       tr.add(e);    
+       tr.add(e);
    } // addClass
    
    // look up the entry of a given day and month
