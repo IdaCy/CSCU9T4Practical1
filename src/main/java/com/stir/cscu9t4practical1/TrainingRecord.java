@@ -16,7 +16,23 @@ public class TrainingRecord {
     
     // add a record to the list
    public void addEntry(Entry e){
-       tr.add(e);
+       Boolean notYetThere = true;
+       int d = e.getDay();
+       int m = e.getMonth();
+       int y = e.getYear();
+       ListIterator<Entry> iter = tr.listIterator();
+       while (iter.hasNext()) {
+           Entry current = iter.next();
+           if (current.getDay()==d && current.getMonth()==m && current.getYear()==y)
+               notYetThere = false;
+       }
+
+        if (notYetThere) {
+            tr.add(e);
+        }
+        else {
+            System.out.println("There already!!!!");
+        }
    } // addClass
    
    // look up the entry of a given day and month
@@ -56,6 +72,24 @@ public class TrainingRecord {
    // Clear all entries
    public void clearAllEntries(){
        tr.clear();
+   }
+
+   public void removeThisEntry(int d, int m, int y) {
+       ListIterator<Entry> iter = tr.listIterator();
+       int count = -1;
+       Boolean noSuchEntryThere = true;
+       while (iter.hasNext()) {
+           Entry current = iter.next();
+           count++;
+           System.out.println(count);
+           if (current.getDay()==d && current.getMonth()==m && current.getYear()==y) {
+               tr.remove(count);
+               noSuchEntryThere = false;
+           }
+       }
+       if (noSuchEntryThere) {
+           return;
+       }
    }
    
 } // TrainingRecord

@@ -3,9 +3,7 @@ package com.stir.cscu9t4practical1;
 
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
 import javax.swing.*;
-import java.lang.Number;
 
 public class TrainingRecordGUI extends JFrame implements ActionListener {
 
@@ -28,6 +26,8 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
     private JButton addR = new JButton("Add");
     private JButton lookUpByDate = new JButton("Look Up");
     private JButton findAllByDate = new JButton("Find all by date");
+    private JButton removeAll = new JButton("RemoveAll");
+    private JButton remove = new JButton("Remove");
 
     JRadioButton r1 = new JRadioButton("Cycle");
     JRadioButton r2 = new JRadioButton("Sprint");
@@ -91,6 +91,10 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         lookUpByDate.addActionListener(this);
         add(findAllByDate);
         findAllByDate.addActionListener(this);
+        add(removeAll);
+        removeAll.addActionListener(this);
+        add(remove);
+        remove.addActionListener(this);
         add(outputArea);
         outputArea.setEditable(false);
         setSize(720, 200);
@@ -113,6 +117,12 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         }
         if (event.getSource() == findAllByDate) {
             message = lookupAllEntries();
+        }
+        if (event.getSource() == removeAll) {
+            message = removeAllEntries();
+        }
+        if (event.getSource() == remove) {
+            message = removeEntry();
         }
         outputArea.setText(message);
         blankDisplay();
@@ -149,7 +159,6 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         else {
             e = new Entry(n, d, m, y, h, mm, s, km);
         }
-
         myAthletes.addEntry(e);
         return message;
     }
@@ -193,6 +202,19 @@ public class TrainingRecordGUI extends JFrame implements ActionListener {
         mins.setText(String.valueOf(ent.getMin()));
         secs.setText(String.valueOf(ent.getSec()));
         dist.setText(String.valueOf(ent.getDistance()));
+    }
+
+    public String removeAllEntries() {
+        myAthletes.clearAllEntries();
+        return "All entries deleted!";
+    }
+    public String removeEntry() {;
+        int m = Integer.parseInt(month.getText());
+        int d = Integer.parseInt(day.getText());
+        int y = Integer.parseInt(year.getText());
+        System.out.println(m + " " + d + " are those currently");
+        outputArea.setText("...soon deleted...");
+        return "Entry deleted!";
     }
 
 } // TrainingRecordGUI
