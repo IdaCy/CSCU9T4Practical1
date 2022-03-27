@@ -25,7 +25,6 @@ public class CycleEntry extends Entry {
                 + ", " + getSec() + ", " + getDistance() + ", " + getTerrain() + ", " + getTempo() + " ...Bike";
     }
 
-
     public String getEntry () {
         String result = getName() + " cycled " + getDistance() + " km in "
                 + getHour() + ":" + getMin() + ":" + getSec() + " on "

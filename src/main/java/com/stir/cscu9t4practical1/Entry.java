@@ -6,8 +6,10 @@ public class Entry {
   protected String name;
   protected Calendar dateAndTime;
   protected float distance;
-  private String terrain;
+  private String terrain; // are these necessary at all?
   private String tempo;
+  private String reps;
+  private String rec;
   
   public Entry (String n, int d, int m, int y, int h, int min, int s, float dist) {
     name = n;
@@ -35,8 +37,8 @@ public class Entry {
     inst.set(y,m-1,d,h,min,s);
     dateAndTime = inst;
     distance = dist;
-    repetitions = getRepetitions();
-    recovery = getRecovery();
+    //repetitions = getRepetitions();
+    //recovery = getRecovery();
   }
 
   // For SwimEntry class?!?
@@ -46,7 +48,7 @@ public class Entry {
     inst.set(y,m-1,d,h,min,s);
     dateAndTime = inst;
     distance = dist;
-    where = getWhere();
+    //where = getWhere();
   }
 
   public String getName () {
@@ -88,18 +90,6 @@ public class Entry {
              +getDay()+"/"+getMonth()+"/"+getYear()+"\n";
    return result;
   } //getEntry
-
-  public int getRepetitions() {
-    return 0; // Change that it makes sense - and, it might not be an integer !
-  }
-
-  public int getRecovery() {
-    return 0; // Change that it makes sense - and, it might not be an integer !
-  }
-
-  public String getWhere() {
-    return null; // Change so it makes sense!!
-  }
 
   @Override
   public String toString() {
